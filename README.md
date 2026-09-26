@@ -1,10 +1,15 @@
-Stories App
+24hr Story Feature
 
-A simple Stories App built using HTML, CSS, and JavaScript. Users can upload images as stories, view them, move between stories, and stories automatically expire after 24 hours.
+A simple client-side Instagram-style Stories feature built with HTML, CSS, and JavaScript. Users can upload images, view them as stories, navigate between stories, and automatically remove stories after 24 hours.
 
-Project
+Project URL
 
-Roadmap.sh project: https://roadmap.sh/projects/stories
+https://roadmap.sh/projects/stories-feature
+
+Solution
+
+GitHub Repository:
+https://github.com/Nandanarajps/stories-app
 
 Features
 
@@ -12,21 +17,21 @@ Add a new story using the + button
 
 Upload an image from the device
 
-Convert the uploaded image to Base64
+Convert the image to Base64
 
-Store stories in browser Local Storage
+Store story data in browser Local Storage
 
 Display uploaded images as circular story thumbnails
 
 Open a story in a full-screen viewer
 
-Navigate to the previous and next stories
+Navigate between stories
 
-Swipe left or right on touch devices
+Swipe left or right to move between stories on touch devices
 
 Automatically remove stories after 24 hours
 
-Responsive layout for desktop and mobile
+Responsive design for desktop and mobile
 
 Client-side only; no backend or database is required
 
@@ -44,92 +49,96 @@ Local Storage API
 
 How to Run
 
+Clone or download this repository.
+
 Open the project folder in VS Code.
 
 Open index.html.
 
 Install the Live Server extension in VS Code.
 
-Right-click index.html.
+Right-click index.html and select Open with Live Server.
 
-Select Open with Live Server.
-
-The Stories App will open in your browser.
+The application will open in your browser.
 
 How It Works
 
-When an image is uploaded:
+When a user uploads an image:
 
-The selected image is checked to make sure it is an image file.
+The image is selected using the file input.
 
-JavaScript reads the image using the FileReader API.
+JavaScript reads the image with the FileReader API.
 
 The image is converted into a Base64 data URL.
 
-The image and the upload time are stored in Local Storage.
+The image and upload timestamp are stored in Local Storage.
 
-The story is displayed in the Stories section.
+The story appears in the Stories section.
 
-When the app loads, it checks the story's timestamp.
+When the page loads, the app checks the stored timestamp.
 
-Stories older than 24 hours are removed automatically.
+Stories older than 24 hours are removed.
 
 Image Size
 
-The project requirement is a maximum image size of 1080 × 1920 pixels.
+The project requires uploaded images to be limited to a maximum of 1080 × 1920 pixels.
 
-The current implementation checks the image dimensions before storing it. Images larger than the allowed dimensions are rejected.
+The application checks the image dimensions before storing the story.
 
 Storage
 
-The stories are stored in browser Local Storage using the key:
+Stories are stored in the browser's Local Storage using the key:
 
 stories
 
-Each story contains:
+The stored story contains:
 
 image
 time
 
-No server or external database is used.
+No server or database is used.
 
 Issues Faced
 
-During development, the main issues were:
+During development, the main challenges were:
 
-Handling image uploads and converting images into Base64 format.
+Converting uploaded images into Base64 format.
 
 Storing image data in Local Storage.
 
-Making sure stories disappear after 24 hours.
+Making sure stories remain available after refreshing the page.
 
-Checking image dimensions before saving a story.
+Implementing automatic 24-hour story expiration.
 
-Making story navigation work with both buttons and touch swipe gestures.
+Handling previous and next story navigation.
 
-Keeping the layout responsive on smaller screens.
+Implementing swipe navigation for touch devices.
+
+Checking the required image dimensions.
+
+Making the interface responsive on different screen sizes.
 
 Known Limitation
 
-Local Storage has limited storage capacity. Because the app stores images as Base64 data, uploading many large images may eventually exceed the browser's Local Storage limit.
+Local Storage has limited storage capacity. Since the application stores image data directly in the browser, uploading many large images can eventually exceed the available Local Storage space.
 
 Testing
 
-Click the + button and upload an image.
+Add a story using the + button.
 
-Check that the image appears as a story.
+Confirm the uploaded image appears.
 
-Click the story to open the viewer.
+Click a story to open the viewer.
 
-Test the previous and next buttons.
+Test previous and next navigation.
 
 Test swipe navigation on a touch device.
 
-Refresh the browser and check that the story remains.
+Refresh the browser and confirm the story remains.
 
-Open browser DevTools → Application → Local Storage and check the stories entry.
+Check stories in Browser DevTools → Application → Local Storage.
 
-Test an image larger than 1080 × 1920 pixels and confirm it is rejected.
+Test an image larger than 1080 × 1920 pixels.
 
 Test the 24-hour expiration logic.
 
@@ -141,4 +150,4 @@ stories-app/
 
 Author
 
-Created as a Roadmap.sh frontend project.
+Created as a Roadmap.sh project.
