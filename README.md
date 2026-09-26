@@ -1,6 +1,6 @@
 Stories App
 
-A simple client-side Stories application inspired by social media story features.
+A simple Stories App built using HTML, CSS, and JavaScript. Users can upload images as stories, view them, move between stories, and stories automatically expire after 24 hours.
 
 Project
 
@@ -8,94 +8,137 @@ Roadmap.sh project: https://roadmap.sh/projects/stories
 
 Features
 
-Add image stories using the + button
+Add a new story using the + button
 
-Store uploaded images as Base64 in browser Local Storage
+Upload an image from the device
 
-Display stories as circular thumbnails
+Convert the uploaded image to Base64
+
+Store stories in browser Local Storage
+
+Display uploaded images as circular story thumbnails
 
 Open a story in a full-screen viewer
 
-Previous and next story navigation
+Navigate to the previous and next stories
 
-Swipe left/right to change stories on touch devices
+Swipe left or right on touch devices
 
-Stories automatically expire after 24 hours
+Automatically remove stories after 24 hours
 
-Responsive design for desktop and mobile
+Responsive layout for desktop and mobile
 
-Client-side only — no backend required
-
-Supports images up to 1080 × 1920 pixels
+Client-side only; no backend or database is required
 
 Technologies Used
 
-HTML
+HTML5
 
-CSS
+CSS3
 
 JavaScript
 
-Local Storage
-
 FileReader API
 
-How to Run
+Local Storage API
 
-Download or clone the project.
+How to Run
 
 Open the project folder in VS Code.
 
 Open index.html.
 
-Run it using the VS Code Live Server extension.
+Install the Live Server extension in VS Code.
 
-Add a story using the + button.
+Right-click index.html.
+
+Select Open with Live Server.
+
+The Stories App will open in your browser.
 
 How It Works
 
 When an image is uploaded:
 
-JavaScript reads the image using FileReader.
+The selected image is checked to make sure it is an image file.
 
-The image is converted to Base64.
+JavaScript reads the image using the FileReader API.
 
-The image and upload time are saved in Local Storage.
+The image is converted into a Base64 data URL.
 
-The image is displayed in the Stories section.
+The image and the upload time are stored in Local Storage.
 
-When the story is older than 24 hours, it is automatically removed.
+The story is displayed in the Stories section.
+
+When the app loads, it checks the story's timestamp.
+
+Stories older than 24 hours are removed automatically.
+
+Image Size
+
+The project requirement is a maximum image size of 1080 × 1920 pixels.
+
+The current implementation checks the image dimensions before storing it. Images larger than the allowed dimensions are rejected.
 
 Storage
 
-Stories are stored in the browser's Local Storage under the key:
+The stories are stored in browser Local Storage using the key:
 
 stories
 
-No server or database is used.
+Each story contains:
+
+image
+time
+
+No server or external database is used.
+
+Issues Faced
+
+During development, the main issues were:
+
+Handling image uploads and converting images into Base64 format.
+
+Storing image data in Local Storage.
+
+Making sure stories disappear after 24 hours.
+
+Checking image dimensions before saving a story.
+
+Making story navigation work with both buttons and touch swipe gestures.
+
+Keeping the layout responsive on smaller screens.
+
+Known Limitation
+
+Local Storage has limited storage capacity. Because the app stores images as Base64 data, uploading many large images may eventually exceed the browser's Local Storage limit.
+
+Testing
+
+Click the + button and upload an image.
+
+Check that the image appears as a story.
+
+Click the story to open the viewer.
+
+Test the previous and next buttons.
+
+Test swipe navigation on a touch device.
+
+Refresh the browser and check that the story remains.
+
+Open browser DevTools → Application → Local Storage and check the stories entry.
+
+Test an image larger than 1080 × 1920 pixels and confirm it is rejected.
+
+Test the 24-hour expiration logic.
 
 Project Structure
 
-stories/
+stories-app/
 ├── index.html
 └── README.md
 
-Testing Checklist
+Author
 
-Add a story using the + button
-
-Confirm the story appears
-
-Click the story to open it
-
-Test previous/next buttons
-
-Test swipe navigation on a touch device
-
-Refresh the page and confirm the story remains
-
-Check Local Storage in browser DevTools
-
-Test story expiration after 24 hours
-
-Test the layout on mobile and desktop
+Created as a Roadmap.sh frontend project.
